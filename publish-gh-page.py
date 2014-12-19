@@ -36,22 +36,27 @@ class Styleguide_publisher(object):
           os.mkdir(pages_dir)
 
       for file in files:
-        if self.__is_html(file):
+        if self.__is_yaml(file):
           self.render_page(os.path.join(root, file))
 
   def render_page(self, filename):
     partial = yaml.load(open(filename, "r").read())
     page_render = pystache.render(self.template_view, partial)
-    page_filename = os.path.join(self.repo_root_abs, filename.replace(self.pages_dirname + "/", ""))
+    page_filename = self.__get_page_filename(filename)
     print "creating " + page_filename + " file"
     open(page_filename, "w+").write(page_render)
 
   def __get_pages_dir(self, file):
     return file.replace(self.pages_dirname + "/", "")
 
-  def __is_html(self, file):
+  def __get_page_filename(self, filename):
+    filename_parts = os.path.splitext(filename)
+    html_version = filename_parts[0] + ".html"
+    return os.path.join(self.repo_root_abs, html_version.replace(self.pages_dirname + "/", ""))
+
+  def __is_yaml(self, file):
     filename, extension = os.path.splitext(file)
-    return extension == ".html"
+    return extension == ".yml"
 
 if __name__ == "__main__":
   styleguide_publisher = Styleguide_publisher()
