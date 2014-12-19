@@ -1,5 +1,6 @@
 import os
 import pystache
+import yaml
 from template_handler import TemplateHandler 
 
 class Styleguide_publisher(object):
@@ -39,8 +40,8 @@ class Styleguide_publisher(object):
           self.render_page(os.path.join(root, file))
 
   def render_page(self, filename):
-    partial = open(filename, "r").read()
-    page_render = pystache.render(self.template_view, { "content" : partial })
+    partial = yaml.load(open(filename, "r").read())
+    page_render = pystache.render(self.template_view, partial)
     page_filename = os.path.join(self.repo_root_abs, filename.replace(self.pages_dirname + "/", ""))
     print "creating " + page_filename + " file"
     open(page_filename, "w+").write(page_render)
