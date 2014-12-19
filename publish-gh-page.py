@@ -26,7 +26,12 @@ class Styleguide_publisher(object):
     return template_handler.get_folder()
 
   def get_template_view(self):
-    return open(os.path.join(self.template_dir, "views/layouts/govuk_template.html"), "r").read()
+    template_vars = {
+      "assetPath" : "/govuk_template/assets/",
+      "content" : "{{{content}}}"
+    }
+    base_template = open(os.path.join(self.template_dir, "views/layouts/govuk_template.html"), "r").read()
+    return pystache.render(base_template, template_vars)
     
   def render_pages(self):
     for root, dirs, files in os.walk(self.pages_dir):
