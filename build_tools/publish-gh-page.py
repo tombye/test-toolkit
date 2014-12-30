@@ -29,7 +29,7 @@ class Styleguide_publisher(object):
 
   def get_template_view(self):
     template_vars = {
-      "assetPath" : "/govuk_template/assets/",
+      "assetPath" : "/test-toolkit/govuk_template/assets/",
       "content" : "{{{content}}}"
     }
     base_template = open(os.path.join(self.template_dir, "views/layouts/govuk_template.html"), "r").read()
