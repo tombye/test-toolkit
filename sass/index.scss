@@ -1,8 +1,8 @@
-@import 'grid_layout';
-@import "typography";
+@import "_grid_layout.scss";
+@import "_typography.scss";
  
 #wrapper {
-  @extend %full-width-wrapper;
+  @extend %site-width-container;
 }
 .grid-row {
   @extend %grid-row;
