@@ -3,7 +3,7 @@ import sass
 
 class AssetCompiler(object):
   def __init__(self):
-    self.repo_root = os.path.abspath(os.path.dirname(__file__))
+    self.repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
     self.sass_src_root = os.path.join(self.repo_root, "sass")
     self.sass_dest_root = os.path.join(self.repo_root, "stylesheets")
 

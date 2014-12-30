@@ -8,7 +8,7 @@ class TemplateHandler(object):
   version_filename = "VERSION"
 
   def __init__(self):
-    self.repo_root = os.path.abspath(os.path.dirname(__file__))
+    self.repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
     self.template_dir = os.path.join(self.repo_root, 'govuk_template')
 
     self.latest_release = self.get_latest_release()
