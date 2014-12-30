@@ -1,0 +1,14 @@
+assetPath: ../govuk_template/assets/
+head: >
+  <link rel="stylesheet" media="all" type="text/css" href="../stylesheets/grids/index.css" />
+content: >
+  <main role="main" id="content" class="wrapper">
+    <div id="wrapper">
+      <h1>One column grid: 100%</h1>
+      <div class="grid-row">
+        <div class="grid-cell">
+          <h2>One column</h2>
+        </div>
+      </div>
+    </div>
+  </main>

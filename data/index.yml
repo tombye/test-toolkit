@@ -1,3 +1,4 @@
+assetPath: govuk_template/assets/
 head: >
   <link rel="stylesheet" media="all" type="text/css" href="stylesheets/index.css" />
 content: >

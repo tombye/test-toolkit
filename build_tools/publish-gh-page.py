@@ -8,7 +8,6 @@ class Styleguide_publisher(object):
   "publish a styleguide for the toolkit"
 
   GIT_URL = "git@github.com:tombye/test-toolkit.git"
-
   pages = []
 
   def __init__(self):
@@ -18,9 +17,6 @@ class Styleguide_publisher(object):
     self.pages_dir = os.path.join(self.repo_root_rel, self.pages_dirname)
     self.template_dir = self.get_template_folder()
     self.template_view = self.get_template_view()
-    self.default_template_vars = {
-      "assetPath" : "govuk_template/assets/"
-    }
     self.render_pages()
     self.compile_assets()
 
@@ -47,7 +43,6 @@ class Styleguide_publisher(object):
 
   def render_page(self, filename):
     partial = yaml.load(open(filename, "r").read())
-    partial = dict(self.default_template_vars.items() + partial.items())
     page_render = pystache.render(self.template_view, partial)
     page_filename = self.__get_page_filename(filename)
     print "creating " + page_filename + " file"
