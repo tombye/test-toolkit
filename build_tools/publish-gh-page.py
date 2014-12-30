@@ -18,6 +18,9 @@ class Styleguide_publisher(object):
     self.pages_dir = os.path.join(self.repo_root_rel, self.pages_dirname)
     self.template_dir = self.get_template_folder()
     self.template_view = self.get_template_view()
+    self.default_template_vars = {
+      "assetPath" : "govuk_template/assets/"
+    }
     self.render_pages()
     self.compile_assets()
 
@@ -28,12 +31,8 @@ class Styleguide_publisher(object):
     return template_handler.get_folder()
 
   def get_template_view(self):
-    template_vars = {
-      "assetPath" : "govuk_template/assets/",
-      "content" : "{{{content}}}"
-    }
     base_template = open(os.path.join(self.template_dir, "views/layouts/govuk_template.html"), "r").read()
-    return pystache.render(base_template, template_vars)
+    return base_template
     
   def render_pages(self):
     for root, dirs, files in os.walk(self.pages_dir):
@@ -48,6 +47,7 @@ class Styleguide_publisher(object):
 
   def render_page(self, filename):
     partial = yaml.load(open(filename, "r").read())
+    partial = dict(self.default_template_vars.items() + partial.items())
     page_render = pystache.render(self.template_view, partial)
     page_filename = self.__get_page_filename(filename)
     print "creating " + page_filename + " file"
