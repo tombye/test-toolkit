@@ -33,6 +33,3 @@ class AssetCompiler(object):
     filename, extension = os.path.splitext(file)
     return filename + "." + new_extension
 
-if __name__ == "__main__":
-  asset_compiler = AssetCompiler()
-  asset_compiler.compile()

@@ -2,6 +2,7 @@ import os
 import pystache
 import yaml
 from template_handler import TemplateHandler 
+from asset_compiler import AssetCompiler
 
 class Styleguide_publisher(object):
   "publish a styleguide for the toolkit"
@@ -18,6 +19,7 @@ class Styleguide_publisher(object):
     self.template_dir = self.get_template_folder()
     self.template_view = self.get_template_view()
     self.render_pages()
+    self.compile_assets()
 
   def get_template_folder(self):
     template_handler = TemplateHandler()
@@ -50,6 +52,10 @@ class Styleguide_publisher(object):
     page_filename = self.__get_page_filename(filename)
     print "creating " + page_filename + " file"
     open(page_filename, "w+").write(page_render)
+
+  def compile_assets(self):
+    asset_compiler = AssetCompiler()
+    asset_compiler.compile()
 
   def __get_pages_dir(self, file):
     return file.replace(self.pages_dirname + "/", "")
