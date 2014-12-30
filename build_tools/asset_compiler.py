@@ -1,5 +1,6 @@
 import os
 import sass
+import shutil
 
 class AssetCompiler(object):
   def __init__(self):
@@ -10,6 +11,7 @@ class AssetCompiler(object):
       "output_style" : "nested",
       "include_paths" : [os.path.join(self.repo_root, "govuk_frontend_toolkit/stylesheets/")]
     }
+    self.clean()
 
   def compile_file(self, src_path_abs):
     sass_options = self.default_options
@@ -28,6 +30,10 @@ class AssetCompiler(object):
 
       for file in files:
         self.compile_file(os.path.join(root, file))
+
+  def clean(self):
+    shutil.rmtree(self.sass_dest_root)
+    os.mkdir(self.sass_dest_root)
 
   def __change_extension_to(self, file, new_extension):
     filename, extension = os.path.splitext(file)
