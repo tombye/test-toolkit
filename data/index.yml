@@ -1,4 +1,6 @@
+head: >
+  <link rel="stylesheet" media="all" type="text/css" href="stylesheets/index.css" />
 content: >
-  <main role="main" id="content">
+  <main role="main" id="content" class="wrapper">
     <h1>Test toolkit</h1>
   </main>
