@@ -31,5 +31,13 @@ pip install -r requirements.txt
 ### Generate the pages
 
 ```
-python publish-gh-page.py
+python build_tools/publish-gh-page.py
 ```
+
+## Workflow considerations
+
+### CSS image paths
+
+In order to allow one path, whether working locally or on `origin gh-pages`, all images referenced in the CSS are assumed to be on the github pages server.
+
+For example, the file `breadcrumb-separator.png` is referenced as `http://tombye.github.io/test-toolkit/images/breadcrumb-separator.png`.
