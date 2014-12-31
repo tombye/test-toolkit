@@ -2,9 +2,6 @@
 @import "_typography.scss";
 @import "_css3.scss";
  
-#wrapper {
-  @extend %site-width-container;
-}
 .grid-row {
   @extend %grid-row;
   margin: 0;
