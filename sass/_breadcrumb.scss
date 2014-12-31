@@ -2,6 +2,9 @@
 @import "_measurements.scss";
 @import "_conditionals.scss";
 @import "_typography.scss";
+@import "_url-helpers.scss";
+
+$path : 'http://tombye.github.io/test-toolkit/images/';
 
 #global-breadcrumb {
   background-color: $white;
@@ -20,7 +23,7 @@
 
       li {
         @include core-16;
-        background: url('compressed/breadcrumb-separator.png') 100% 50% no-repeat;
+        background: file-url('breadcrumb-separator.png') 100% 50% no-repeat;
         float: left;
         list-style: none;
 
