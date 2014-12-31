@@ -9,7 +9,10 @@ class AssetCompiler(object):
     self.sass_dest_root = os.path.join(self.repo_root, "stylesheets")
     self.default_options = {
       "output_style" : "nested",
-      "include_paths" : [os.path.join(self.repo_root, "govuk_frontend_toolkit/stylesheets/")]
+      "include_paths" : [
+        os.path.join(self.repo_root, "govuk_frontend_toolkit/stylesheets/"),
+        os.path.join(self.repo_root, "sass")
+      ]
     }
     self.clean()
 
