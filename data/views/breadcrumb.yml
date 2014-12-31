@@ -6,7 +6,7 @@ content: >
     <nav>
       <ol class="group" role="breadcrumbs">
         <li>
-          Home
+          <a href="./">Home</a>
         </li>
         <li>
           <a href="">Item 1</a>
