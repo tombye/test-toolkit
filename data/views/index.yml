@@ -5,5 +5,8 @@ content: >
   <main role="main" id="content" class="wrapper">
     <div id="wrapper">
       <h1>Test toolkit</h1>
+      <ul>
+        <li><a href="/grids">Grids</a></li>
+      </ul>
     </div>
   </main>

@@ -1,17 +1,13 @@
 assetPath: ../govuk_template/assets/
 head: >
-  <link rel="stylesheet" media="all" type="text/css" href="../stylesheets/grids/index.css" />
+  <link rel="stylesheet" media="all" type="text/css" href="../stylesheets/index.css" />
 content: >
   <main role="main" id="content" class="wrapper">
     <div id="wrapper">
       <h1>Grids</h1>
-      <div class="grid-row">
-        <div class="grid-cell">
-          <ul>
-            <li><a href="/grids/full-width.html">One column: 100%</a></li>
-            <li><a href="/grids/two-thirds-one-third.html">Two columns: 66% and 33%</a></li>
-          </ul>
-        </div>
-      </div>
+      <ul>
+        <li><a href="/grids/full-width.html">One column: 100%</a></li>
+        <li><a href="/grids/two-thirds-one-third.html">Two columns: 66% and 33%</a></li>
+      </ul>
     </div>
   </main>
